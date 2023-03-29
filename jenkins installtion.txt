@@ -1,0 +1,30 @@
+                       Install jenkins on Azure linux Vm
+
+
+step-1 >>> az login
+
+step-2 >>> sudo apt install openjdk-8-jdk -y
+
+step-3 >>> wget -qO - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add
+
+step-4 >>> sudo apt-get update
+
+step-5 >>> sudo apt-get install jenkins -y
+
+step-6 >>> az vm list -d -o table --query "[?name=='vm1']"   (change the name to jenkins-get-started to >> VM1)
+
+step-7 >>> az vm open-port --resource-group Atradius-Bootcamp --name VM4 --port 8080 --priority 1010 (change your vm name here)
+
+step-8 >>> sudo cat /var/lib/jenkins/secrets/initialAdminPassword (after this step get the passowrd copy to your notepad)
+
+step-9 >>> service jenkins status 
+
+  After step-9
+
+
+step-10 >>> open browser and paste your URL  http://20.127.109.25:8080 (change your ip here)
+
+step-11 >>> paste the password you will get the log in page give your credential
+
+after this follow the tutorial documents for remaining steps 
+

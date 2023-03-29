@@ -1,0 +1,7 @@
+ssh -i VM1_key.pem azureuser@20.127.109.25
+
+vm1docker.azurecr.io
+
+az aks create --resource-group atradius-Bootcamp --name vm1aAKSCluster --location centralus --attach-acr acrvm1a --generate-ssh-keys
+
+az aks upgrade --resource-group Atradius-Bootcamp --name vm1aAKSCluster --kubernetes-version 1.23.1

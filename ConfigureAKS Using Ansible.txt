@@ -1,0 +1,8 @@
+Step 1:
+az aks create --resource-group atradius-Bootcamp --name vm1aAKSCluster --location centralus --attach-acr acrvm1a --generate-ssh-keys
+
+echo azure_create_aks.yml
+
+vim azure_create_aks.yml
+
+Paste the YML file here.

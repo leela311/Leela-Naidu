@@ -1,0 +1,9 @@
+step1 : cd azure-voting-app-redis  
+
+step2 : az login
+
+step3 : az acr login --n <acrName>  (give unique acr name)
+
+step4 : sudo chmod 666 /var/run/docker.sock
+
+step5 : docker push <acrLoginServer>/azure-vote-front:v1 (change acr Login server)

@@ -1,0 +1,37 @@
+                         Prepare Application for AKS 
+
+
+   step-1 >>>>>>>>> git clone https://github.com/Azure-Samples/azure-voting-app-redis.git (clone from git hub).
+   
+   step-2 >>>>>>>>> cd azure-voting-app-redis
+
+
+   step-3 >>>>>>>> sudo chmod 666 /var/run/docker.sock
+
+   step-4 >>>>>>>> docker-compose up -d
+
+   step-5 >>>>>>>> http://localhost:8080 (run the local host)
+
+
+                     Create container registrey  (continuous)
+
+
+   step-6 >>>>>> az login
+   
+   step-7 >>>>>> az group create --name myResourceGroup --location eastus  (change resource grp name)
+
+   step-8 >>>>>> az acr create --resource-group myResourceGroup --name <acrName> --sku Basic  (change rg name , add unique name in the place of acr name)
+
+   step-9 >>>>>> az acr login --name <acrName>  (give unique acr name)
+
+   step-10 >>>>>> az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+
+Type docker images
+
+   step-11 >>>>>> docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v1  (change acr Login server)
+
+   step-12 >>>>>> docker push <acrLoginServer>/azure-vote-front:v1 (change acr Login server)
+
+  step-13 >>>>>> az acr repository list --name <acrName> --output table (give your acr name here)
+
+  step-14 >>>>>> az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
